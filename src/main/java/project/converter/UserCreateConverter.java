@@ -6,7 +6,7 @@ import project.dto.UserResponseDto;
 import project.entity.User;
 
 @Component
-public class UserCreateConverter implements Converter<User, project.dto.UserCreateDto, UserResponseDto> {
+public class UserCreateConverter implements Converter<User, UserCreateDto, UserResponseDto> {
 
     @Override
     public UserResponseDto toDto(User user) {
