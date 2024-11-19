@@ -1,9 +1,11 @@
 package project.converter;
 
+import org.springframework.stereotype.Component;
 import project.dto.UserCreateDto;
 import project.dto.UserResponseDto;
 import project.entity.User;
 
+@Component
 public class UserCreateConverter implements Converter<User, project.dto.UserCreateDto, UserResponseDto> {
 
     @Override
