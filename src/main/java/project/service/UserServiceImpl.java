@@ -14,19 +14,23 @@ public class UserServiceImpl implements UserService {
     private UserRepository repository;
 
 
+//  @GET ---------------------------------------------------------------------------------------------------------------
+
     @Override
     public List<User> getAll() {
         return repository.findAll();
     }
 
     @Override
-    public void create(User user) {
-
-    }
-
-    @Override
     public User getById(long id) {
         return repository.findById(id).get();
+    }
+
+//  @POST --------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public User create(User user) {
+        return repository.save(user);
     }
 
     @Override

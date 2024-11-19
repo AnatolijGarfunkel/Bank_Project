@@ -1,5 +1,6 @@
 package project.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import project.converter.Converter;
@@ -20,7 +21,7 @@ public class UserController {
     private UserService service;
 
 
-//  @GET --------------------------------------------------------------------------------------------------
+//  @GET ---------------------------------------------------------------------------------------------------------------
 
     @GetMapping
     public List<UserResponseDto> getAll() {
@@ -38,4 +39,55 @@ public class UserController {
         UserResponseDto userResponseDto = converter.toDto(user);
         return userResponseDto;
     }
+
+//  @POST --------------------------------------------------------------------------------------------------------------
+
+    @PostMapping
+    public UserResponseDto create(@RequestBody @Valid UserCreateDto userCreateDto) {
+        User entity = converter.toEntity(userCreateDto);
+        User user = service.create(entity);
+        UserResponseDto userResponseDto = converter.toDto(user);
+        return userResponseDto;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
