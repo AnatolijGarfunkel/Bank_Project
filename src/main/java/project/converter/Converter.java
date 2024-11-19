@@ -1,8 +1,8 @@
 package project.converter;
 
-public interface Converter<Entity, ReequestDto, ResponseDto> {
+public interface Converter<Entity, RequestDto, ResponseDto> {
 
     ResponseDto toDto(Entity entity);
 
-    Entity toEntity(ReequestDto dto);
+    Entity toEntity(RequestDto dto);
 }
