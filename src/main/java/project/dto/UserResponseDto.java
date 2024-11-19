@@ -1,10 +1,10 @@
 package project.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Generated;
+import lombok.Getter;
 
 @AllArgsConstructor
-@Generated
+@Getter
 public class UserResponseDto {
 
     private long id;
