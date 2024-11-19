@@ -1,17 +1,13 @@
 package project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.converter.Converter;
 import project.dto.UserCreateDto;
 import project.dto.UserResponseDto;
 import project.entity.User;
 import project.service.UserService;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/users")
@@ -34,5 +30,12 @@ public class UserController {
             userResponseDtos.add(converter.toDto(user));
         }
         return userResponseDtos;
+    }
+
+    @GetMapping("/{id}")
+    public UserResponseDto getById(@PathVariable long id) {
+        User user = service.getById(id);
+        UserResponseDto userResponseDto = converter.toDto(user);
+        return userResponseDto;
     }
 }
