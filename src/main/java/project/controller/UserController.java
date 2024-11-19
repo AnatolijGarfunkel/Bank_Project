@@ -49,6 +49,15 @@ public class UserController {
         UserResponseDto userResponseDto = converter.toDto(user);
         return userResponseDto;
     }
+
+//  @DELETE ------------------------------------------------------------------------------------------------------------
+
+    @DeleteMapping("/{id}")
+    public UserResponseDto remove(@PathVariable long id) {
+        User removed = service.remove(id);
+        UserResponseDto userResponseDto = converter.toDto(removed);
+        return userResponseDto;
+    }
 }
 
 

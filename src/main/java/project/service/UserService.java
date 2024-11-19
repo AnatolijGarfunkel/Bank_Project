@@ -12,5 +12,5 @@ public interface UserService {
 
     User create(User user);
 
-    void remove(long id);
+    User remove(long id);
 }
