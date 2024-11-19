@@ -1,9 +1,11 @@
 package project.service;
 
+import org.springframework.stereotype.Service;
 import project.entity.User;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAll() {
