@@ -1,6 +1,5 @@
 package project.controller;
 
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import project.converter.Converter;
@@ -8,6 +7,7 @@ import project.dto.UserCreateDto;
 import project.dto.UserResponseDto;
 import project.entity.User;
 import project.service.UserService;
+import jakarta.validation.Valid;
 import java.util.*;
 
 @RestController
@@ -58,6 +58,22 @@ public class UserController {
         UserResponseDto userResponseDto = converter.toDto(removed);
         return userResponseDto;
     }
+
+// EXCEPTION -----------------------------------------------------------------------------------------------------------
+
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    @ExceptionHandler(ConstraintViolationException.class)
+//    public Map<String, String> handleValidationException(ConstraintViolationException exception) {
+//        Map<String, String> errorMap = new HashMap<>();
+//        Set<ConstraintViolation<?>> constraintViolations = exception.getConstraintViolations();
+//        for (ConstraintViolation violation : constraintViolations) {
+//            String message = violation.getMessage();
+//            String param = violation.getPropertyPath().toString();
+//            errorMap.put(param, message);
+//        }
+//        return errorMap;
+//    }
+
 }
 
 

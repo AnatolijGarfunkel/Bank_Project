@@ -3,9 +3,11 @@ package project.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.entity.User;
+import project.exception.NotFoundException;
 import project.repository.UserRepository;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,7 +25,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getById(long id) {
-        return repository.findById(id).get();
+        return repository
+                .findById(id)
+                .orElseThrow(
+                        () -> new NotFoundException(
+                        "User with id " + id + " not found"
+                        )
+                );
+
     }
 
 //  @POST --------------------------------------------------------------------------------------------------------------
@@ -40,3 +49,44 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
